@@ -1,16 +1,557 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Painting Estimater</title>
-    <link href="./assets/style.css" rel="stylesheet">
-</head>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+      integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous"
+    />
+    <link href="./assets/style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  </head>
 
-<body>
+  <body>
+    <div id="header"></div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div id="quote-builder" class="card">
+          <div class="card-header">
+            <strong>Get A Quote</strong>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="form-group col-2">
+                  <label for="livingroom">Living Room</label>
+                  <select class="form-control" id="livingroom">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="trim1"
+                      value="trim"
+                    />
+                    Trim
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="wall1"
+                      value="walls"
+                    />
+                    Walls
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="ceiling1"
+                      value="ceiling"
+                    />
+                    Ceiling
+                  </label>
+                </div>
+                <div class="col-1"></div>
+                <div id="livingTotal"></div>
+              </div>
+              <div class="row">
+                <div class="form-group col-2">
+                  <label for="diningroom">Dining Room</label>
+                  <select class="form-control" id="diningroom">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="trim5"
+                      value="trim"
+                    />
+                    Trim
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="wall5"
+                      value="walls"
+                    />
+                    Walls
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="ceiling5"
+                      value="ceiling"
+                    />
+                    Ceiling
+                  </label>
+                </div>
+                <div class="col-1"></div>
+                <div id="diningTotal"></div>
+              </div>
+              <div class="row">
+                <div class="form-group col-2">
+                  <label for="office">Office</label>
+                  <select class="form-control" id="office">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="trim6"
+                      value="trim"
+                    />
+                    Trim
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="wall6"
+                      value="walls"
+                    />
+                    Walls
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="ceiling6"
+                      value="ceiling"
+                    />
+                    Ceiling
+                  </label>
+                </div>
+                <div class="col-1"></div>
+                <div id="officeTotal"></div>
+              </div>
+              <div class="row">
+                <div class="form-group col-2">
+                  <label for="hallways">Hallways</label>
+                  <select class="form-control" id="hallways">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="trim7"
+                      value="trim"
+                    />
+                    Trim
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="wall7"
+                      value="walls"
+                    />
+                    Walls
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="ceiling7"
+                      value="ceiling"
+                    />
+                    Ceiling
+                  </label>
+                </div>
+                <div class="col-1"></div>
+                <div id="hallwaysTotal"></div>
+              </div>
+              <div class="row">
+                <div class="form-group col-2">
+                  <label for="stairways">Stairways</label>
+                  <select class="form-control" id="stairways">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="trim8"
+                      value="trim"
+                    />
+                    Trim
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="wall8"
+                      value="walls"
+                    />
+                    Walls
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="ceiling8"
+                      value="ceiling"
+                    />
+                    Ceiling
+                  </label>
+                </div>
+                <div class="col-1"></div>
+                <div id="stairwaysTotal"></div>
+              </div>
+              <div class="row">
+                <div class="form-group col-2">
+                  <label for="foyer">Foyer</label>
+                  <select class="form-control" id="foyer">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="trim9"
+                      value="trim"
+                    />
+                    Trim
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="wall9"
+                      value="walls"
+                    />
+                    Walls
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="ceiling9"
+                      value="ceiling"
+                    />
+                    Ceiling
+                  </label>
+                </div>
+                <div class="col-1"></div>
+                <div id="foyerTotal"></div>
+              </div>
+              <div class="row">
+                <div class="form-group col-2">
+                  <label for="lobby">Lobby</label>
+                  <select class="form-control" id="lobby">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="trimA"
+                      value="trim"
+                    />
+                    Trim
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="wallA"
+                      value="walls"
+                    />
+                    Walls
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="ceilingA"
+                      value="ceiling"
+                    />
+                    Ceiling
+                  </label>
+                </div>
+                <div class="col-1"></div>
+                <div id="lobbyTotal"></div>
+              </div>
+              <div class="row">
+                <div class="form-group col-2">
+                  <label for="familyroom">Family Room</label>
+                  <select class="form-control" id="familyroom">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="trimB"
+                      value="trim"
+                    />
+                    Trim
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="wallB"
+                      value="walls"
+                    />
+                    Walls
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="ceilingB"
+                      value="ceiling"
+                    />
+                    Ceiling
+                  </label>
+                </div>
+                <div class="col-1"></div>
+                <div id="familyTotal"></div>
+              </div>
+              <div class="row">
+                <div class="form-group col-2">
+                  <label for="kitchen">Kitchen</label>
+                  <select class="form-control" id="kitchen">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="trim2"
+                      value="trim"
+                    />
+                    Trim
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="wall2"
+                      value="walls"
+                    />
+                    Walls
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="ceiling2"
+                      value="ceiling"
+                    />
+                    Ceiling
+                  </label>
+                </div>
+                <div class="col-1"></div>
+                <div id="kitchenTotal"></div>
+              </div>
+              <div class="row">
+                <div class="form-group col-2">
+                  <label for="bathroom">Bathroom</label>
+                  <select class="form-control" id="bathroom">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="trim3"
+                      value="trim"
+                    />
+                    Trim
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="wall3"
+                      value="walls"
+                    />
+                    Walls
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="ceiling3"
+                      value="ceiling"
+                    />
+                    Ceiling
+                  </label>
+                </div>
+                <div class="col-1"></div>
+                <div id="bathroomTotal"></div>
+              </div>
+              <div class="row">
+                <div class="form-group col-2">
+                  <label for="bedroom">Bedroom</label>
+                  <select class="form-control" id="bedroom">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="trim4"
+                      value="trim"
+                    />
+                    Trim
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="wall4"
+                      value="walls"
+                    />
+                    Walls
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      name="ceiling4"
+                      value="ceiling"
+                    />
+                    Ceiling
+                  </label>
+                </div>
+                <div class="col-1"></div>
+                <div id="bedroomTotal"></div>
+              </div>
+              <div class="row">
+                <div class="col-2">
+                  <button type="submit" class="btn btn-primary" id="submit">
+                    Estimate
+                  </button>
+                </div>
+                <div class="col-md-3"></div>
+                <div id="total"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <h1>Hello</h1>
-
-
-<script src="./assets/logic.js" type="text/javascript"></script>
-</body>
+    <script src="./assets/logic.js" type="text/javascript"></script>
+  </body>
 </html>

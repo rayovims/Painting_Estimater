@@ -1,4 +1,11 @@
+#header {
+    margin-bottom: 10px;
+}
+
+.form-check-inline {
+    margin-top: 30px;
+}
+
 body {
-    background-color: black;
-    color: aqua;
+    font-size: 14px;
 }
