@@ -10,14 +10,28 @@ $("#submit").on("click", function(e) {
     let bathroomTotal = 0;
     let familyTotal = 0;
     let kitchenTotal = 0;
+    let railingsTotal = 0;
+    let bathroomRenovation = 0;
+    let walls = 0;
+    let trim = 0;
+    let ceiling = 0;
 
-    let walls = 450;
-    let trim = 150;
-    let ceiling = 150;
+    walls = parseInt($('#wall_input').val(),10);
+    trim = parseInt($('#trim_input').val(), 10);
+    ceiling = parseInt($('#ceiling_input').val(), 10);
     
     let total = 0;
 
     e.preventDefault();
+
+    railingsTotal = parseInt($('#railings').val(), 10);
+
+    bathroomRenovation = parseInt($('#bathroomRenovation').val(), 10);
+
+
+    $("#bathroomRenovationTotal").html("$" + bathroomRenovation);
+
+    $("#railingsTotal").html("$" + railingsTotal);
 
     //living room Logic
     var livingArr = [];
@@ -27,13 +41,13 @@ $("#submit").on("click", function(e) {
     var livingroomCeiling = $('input[name="ceiling1"]:checked').val();
 
     if (livingroomTrim != null) {
-        livingArr.push(150);
+        livingArr.push(trim);
     }
     if (livingroomWall != null) {
-        livingArr.push(450);
+        livingArr.push(walls);
     }
     if (livingroomCeiling != null) {
-        livingArr.push(150);
+        livingArr.push(ceiling);
     }
     livingTotal = livingArr.reduce(function(previousVal, currentVal) {
         return previousVal + currentVal;
@@ -53,13 +67,13 @@ $("#submit").on("click", function(e) {
     var diningroomCeiling = $('input[name="ceiling5"]:checked').val();
 
     if (diningroomTrim != null) {
-        diningArr.push(150);
+        diningArr.push(trim);
     }
     if (diningroomWall != null) {
-        diningArr.push(450);
+        diningArr.push(walls);
     }
     if (diningroomCeiling != null) {
-        diningArr.push(150);
+        diningArr.push(ceiling);
     }
     diningTotal = diningArr.reduce(function(previousVal, currentVal) {
         return previousVal + currentVal;
@@ -79,13 +93,13 @@ $("#submit").on("click", function(e) {
     var officeCeiling = $('input[name="ceiling6"]:checked').val();
 
     if (officeTrim != null) {
-        officeArr.push(150);
+        officeArr.push(trim);
     }
     if (officeWall != null) {
-        officeArr.push(450);
+        officeArr.push(walls);
     }
     if (officeCeiling != null) {
-        officeArr.push(150);
+        officeArr.push(ceiling);
     }
     officeTotal = officeArr.reduce(function(previousVal, currentVal) {
         return previousVal + currentVal;
@@ -105,13 +119,13 @@ $("#submit").on("click", function(e) {
     var hallwaysCeiling = $('input[name="ceiling7"]:checked').val();
 
     if (hallwaysTrim != null) {
-        hallwaysArr.push(150);
+        hallwaysArr.push(trim);
     }
     if (hallwaysWall != null) {
-        hallwaysArr.push(450);
+        hallwaysArr.push(walls);
     }
     if (hallwaysCeiling != null) {
-        hallwaysArr.push(150);
+        hallwaysArr.push(ceiling);
     }
     hallwaysTotal = hallwaysArr.reduce(function(previousVal, currentVal) {
         return previousVal + currentVal;
@@ -131,13 +145,13 @@ $("#submit").on("click", function(e) {
     var stairwaysCeiling = $('input[name="ceiling8"]:checked').val();
 
     if (stairwaysTrim != null) {
-        stairwaysArr.push(150);
+        stairwaysArr.push(trim);
     }
     if (stairwaysWall != null) {
-        stairwaysArr.push(450);
+        stairwaysArr.push(walls);
     }
     if (stairwaysCeiling != null) {
-        stairwaysArr.push(150);
+        stairwaysArr.push(ceiling);
     }
     stairwayTotal = stairwaysArr.reduce(function(previousVal, currentVal) {
         return previousVal + currentVal;
@@ -183,13 +197,13 @@ $("#submit").on("click", function(e) {
     var lobbyCeiling = $('input[name="ceilingA"]:checked').val();
 
     if (lobbyTrim != null) {
-        lobbyArr.push(150);
+        lobbyArr.push(trim);
     }
     if (lobbyWall != null) {
-        lobbyArr.push(450);
+        lobbyArr.push(walls);
     }
     if (lobbyCeiling != null) {
-        lobbyArr.push(150);
+        lobbyArr.push(ceiling);
     }
     lobbyTotal = lobbyArr.reduce(function(previousVal, currentVal) {
         return previousVal + currentVal;
@@ -209,13 +223,13 @@ $("#submit").on("click", function(e) {
     var familyCeiling = $('input[name="ceilingB"]:checked').val();
 
     if (familyTrim != null) {
-        familyArr.push(150);
+        familyArr.push(trim);
     }
     if (familyWall != null) {
-        familyArr.push(450);
+        familyArr.push(walls);
     }
     if (familyCeiling != null) {
-        familyArr.push(150);
+        familyArr.push(ceiling);
     }
     familyTotal = familyArr.reduce(function(previousVal, currentVal) {
         return previousVal + currentVal;
@@ -235,13 +249,13 @@ $("#submit").on("click", function(e) {
     var kitchenCeiling = $('input[name="ceiling2"]:checked').val();
 
     if (kitchenTrim != null) {
-        kitchenArr.push(150);
+        kitchenArr.push(trim);
     }
     if (kitchenWall != null) {
-        kitchenArr.push(450);
+        kitchenArr.push(walls);
     }
     if (kitchenCeiling != null) {
-        kitchenArr.push(150);
+        kitchenArr.push(ceiling);
     }
     kitchenTotal = kitchenArr.reduce(function(previousVal, currentVal) {
         return previousVal + currentVal;
@@ -287,13 +301,13 @@ $("#submit").on("click", function(e) {
     var bedroomCeiling = $('input[name="ceiling4"]:checked').val();
 
     if (bedroomTrim != null) {
-        bedroomArr.push(150);
+        bedroomArr.push(trim);
     }
     if (bedroomWall != null) {
-        bedroomArr.push(450);
+        bedroomArr.push(walls);
     }
     if (bedroomCeiling != null) {
-        bedroomArr.push(150);
+        bedroomArr.push(ceiling);
     }
     bedroomTotal = bedroomArr.reduce(function(previousVal, currentVal) {
         return previousVal + currentVal;
@@ -306,7 +320,8 @@ $("#submit").on("click", function(e) {
     $("#bedroomTotal").html("$" + bedroomTotal);
 
     //Total
-    total = livingTotal + diningTotal + bedroomTotal + bathroomTotal + officeTotal + hallwaysTotal + stairwayTotal + foyerTotal + lobbyTotal + familyTotal + kitchenTotal;
+    total = livingTotal + diningTotal + bedroomTotal + bathroomTotal + officeTotal + hallwaysTotal + stairwayTotal + foyerTotal + lobbyTotal + familyTotal + kitchenTotal + railingsTotal + bathroomRenovation;
+
     $("#total").html("Total: $" + total);
 
 });
