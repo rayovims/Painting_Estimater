@@ -326,5 +326,56 @@ $("#submit").on("click", function(e) {
 
 });
 
+//     console.log("Hello");
+//     let screen = document.getElementById("screen");
+//     let send = screen.getContext("2d");
+
+//     console.log(send);
+
+//     // window.open('', document.getElementById('screen'))
+// })
+
+// html2canvas(document.querySelector("#capture")).then(canvas => {
+//     document.body.appendChild(canvas)
+// });
+
+$("#download").on("click", function () {
+
+    function convertURIToImageData(URI) {
+        return new Promise(function(resolve, reject) {
+          if (URI == null) return reject();
+          var canvas = document.createElement('canvas'),
+              context = canvas.getContext('2d'),
+              image = new Image();
+          image.addEventListener('load', function() {
+            canvas.width = image.width;
+            canvas.height = image.height;
+            context.drawImage(image, 0, 0, canvas.width, canvas.height);
+            resolve(context.getImageData(0, 0, canvas.width, canvas.height));
+          }, false);
+          image.src = URI;
+        });
+      }
+
+    var node = document.getElementById('quote');
+    var options = {
+        quality: 0.95 
+    };
+
+    domtoimage.toJpeg(node, options).then(function (dataUrl) {
+
+        console.log(dataUrl);
+
+        document.getElementById('test').src = dataUrl;
+
+        // convertURIToImageData(dataUrl).then(function(imageData) {
+        //     // Here you can use imageData
+        //     console.log(imageData);
+        //   });
+        // Do something with the dataURL (data:image/jpeg;base64,i........)
+    })
+});
+
+
 
 
