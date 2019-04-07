@@ -362,11 +362,16 @@ $("#download").on("click", function () {
         quality: 0.95 
     };
 
-    domtoimage.toJpeg(node, options).then(function (dataUrl) {
+    domtoimage.toJpeg(node, options).then(function (imageData) {
 
-        console.log(dataUrl);
+        console.log(imageData);
 
-        document.getElementById('test').src = dataUrl;
+        $("#test").attr('src', imageData);
+
+        console.log($("#download"))
+
+
+        // document.getElementById('test').href = imageData;
 
         // convertURIToImageData(dataUrl).then(function(imageData) {
         //     // Here you can use imageData
